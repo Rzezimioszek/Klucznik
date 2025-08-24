@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klucznik</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <!-- DODANE LINIE DLA PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a2c4e"/>
+    <!-- KONIEC DODANYCH LINII -->
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Bezpieczny Menedżer Haseł (Client-Side)</h1>
+        <p class="warning">
+            <strong>Uwaga:</strong> To jest projekt demonstracyjny. Całe szyfrowanie odbywa się w Twojej przeglądarce. 
+            Żadne dane nie są nigdzie wysyłane. Używaj na własną odpowiedzialność.
+        </p>
+
+        <!-- EKRAN STARTOWY -->
+        <div id="welcome-screen">
+            <h2>Witaj!</h2>
+            <button id="load-file-btn" class="btn">Wczytaj istniejący sejf (.json)</button>
+            <button id="create-new-btn" class="btn">Stwórz nowy sejf</button>
+            <input type="file" id="file-input" accept=".json" style="display: none;">
+        </div>
+
+        <!-- GŁÓWNY WIDOK APLIKACJI -->
+        <div id="app-screen" class="hidden">
+            <div class="actions">
+                <input type="search" id="search-input" placeholder="Wyszukaj...">
+                <div class="action-buttons">
+                    <button id="add-card-btn" class="btn">Dodaj nowy wpis</button>
+                    <button id="export-file-btn" class="btn btn-primary">Zapisz i wyeksportuj sejf</button>
+                </div>
+            </div>
+            <div id="cards-container">
+                <!-- Tutaj JavaScript będzie dynamicznie wstawiał karty -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DO WPROWADZANIA HASŁA GŁÓWNEGO -->
+    <div id="password-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3 id="modal-title">Wprowadź hasło</h3>
+            <form id="password-form">
+                <input type="password" id="password-input" class="form-input" required>
+                <div class="modal-actions">
+                    <button type="submit" class="btn btn-primary">Zatwierdź</button>
+                    <button type="button" id="cancel-password-btn" class="btn">Anuluj</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- MODAL DO DODAWANIA/EDYCJI WPISU -->
+    <div id="entry-modal" class="modal-overlay hidden">
+        <div class="modal-content wide">
+            <h3 id="entry-modal-title">Nowy wpis</h3>
+            <form id="entry-form">
+                <input type="hidden" id="entry-index-input"> <!-- Do śledzenia edytowanego elementu -->
+                <label for="service-input">Serwis:</label>
+                <input type="text" id="service-input" class="form-input" required placeholder="np. Google, Facebook">
+                
+                <label for="url-input">URL (opcjonalnie):</label>
+                <input type="text" id="url-input" class="form-input" placeholder="https://">
+                
+                <label for="login-input">Login / Email:</label>
+                <input type="text" id="login-input" class="form-input" required>
+                
+                <label for="entry-password-input">Hasło:</label>
+                <div class="password-generator-field">
+                    <input type="text" id="entry-password-input" class="form-input" required>
+                    <button type="button" id="generate-password-btn" class="btn" title="Generuj nowe hasło">🎲</button>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="submit" class="btn btn-primary">Zapisz</button>
+                    <button type="button" id="cancel-entry-btn" class="btn">Anuluj</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- SZABLON KARTY -->
+    <template id="card-template">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"></h3>
+                <div class="card-actions">
+                    <button class="edit-btn" title="Edytuj">✏️</button>
+                    <button class="delete-btn" title="Usuń">🗑️</button>
+                </div>
+            </div>
+            <p><strong>URL:</strong> <a class="card-url" href="#" target="_blank" rel="noopener noreferrer"></a></p>
+            <div class="copyable-field">
+                <p><strong>Login:</strong> <span class="card-login"></span></p>
+                <button class="copy-btn" title="Kopiuj login">📋</button>
+            </div>
+            <div class="copyable-field">
+                <div class="password-field">
+                    <strong>Hasło:</strong> 
+                    <input class="card-password" type="password" readonly>
+                    <button class="toggle-visibility-btn">👁️</button>
+                </div>
+                <button class="copy-btn" title="Kopiuj hasło">📋</button>
+            </div>
+        </div>
+    </template>
+
+</body>
+</html>
