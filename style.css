@@ -131,4 +131,69 @@ h2 { font-size: 1.75rem; margin-bottom: 1.25rem; }
     .toggle-visibility-btn, .copy-btn, .edit-btn, .delete-btn {
         padding: 12px; /* Zwiększa "tap target" */
     }
+    
+}
+
+/* ---=======================================--- */
+/* ---             TRYB CIEMNY               --- */
+/* ---=======================================--- */
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Paleta kolorów dla trybu ciemnego */
+        --md-sys-primary: #A9C7FF; /* Jaśniejszy, mniej nasycony kolor podstawowy */
+        --md-sys-on-primary: #00325B; /* Ciemny tekst na jasnym przycisku */
+        --md-sys-primary-container: #334A64; /* Ciemne tło tonalne */
+        --md-sys-on-primary-container: #D8E2FF; /* Jasny tekst na tle tonalnym */
+        
+        --md-sys-background: #1A1C1E; /* Bardzo ciemne tło, ale nie czarne */
+        --md-sys-on-background: #E3E2E6; /* Jasny tekst (nie czysta biel) */
+
+        /* Głębia przez jasność: Surface jest odrobinę jaśniejszy od Background */
+        --md-sys-surface: #1A1C1E; /* Powierzchnia na poziomie 0 */
+        /* W Material 3 używa się półprzezroczystej nakładki koloru podstawowego, aby zasymulować jaśniejszą powierzchnię */
+        /* Przykład dla karty (elevation 1): background-color: color-mix(in srgb, var(--md-sys-surface) 95%, var(--md-sys-primary) 5%); */
+        
+        --md-sys-surface-variant: #44474F; /* Ciemniejsza powierzchnia drugorzędna */
+        --md-sys-on-surface: #E3E2E6; /* Tekst na powierzchni */
+        --md-sys-on-surface-variant: #C4C6D0; /* Tekst drugorzędny, bardziej szary */
+
+        --md-sys-outline: #8E9099; /* Jaśniejsze obramowanie, widoczne na ciemnym tle */
+        --md-sys-outline-variant: #44474F; /* Subtelniejsze obramowanie */
+        
+        --md-sys-error: #F2B8B5; /* Jaśniejszy kolor błędu */
+        --md-sys-error-container: #8C1D18; /* Ciemne tło dla komunikatów o błędach */
+        --md-sys-on-error-container: #F9DEDC; /* Jasny tekst na tle błędu */
+
+        /* Cienie są w trybie ciemnym prawie niewidoczne, głębię tworzy kolor */
+        --shadow-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.25);
+        --shadow-elevation-2: 0 2px 6px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.25);
+        --shadow-elevation-3: 0 4px 8px rgba(0, 0, 0, 0.35), 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Nadpisanie konkretnych elementów dla lepszego efektu */
+    
+    /* Karty i modal zyskują jasność przez nałożenie półprzezroczystego koloru */
+    /* To jest kluczowa technika M3 dla trybu ciemnego */
+    .container, .card, .modal-content {
+        /* Mieszamy kolor powierzchni z odrobiną koloru podstawowego, aby go "podświetlić" */
+        /* To symuluje "elevation" w trybie ciemnym. */
+        background-color: color-mix(in srgb, var(--md-sys-surface) 92%, var(--md-sys-primary) 8%);
+    }
+
+    /* Pola formularzy powinny pozostać ciemniejsze */
+    .form-input, #search-input {
+        background-color: var(--md-sys-surface-variant);
+        color: var(--md-sys-on-surface);
+        border-color: var(--md-sys-outline);
+    }
+
+    /* Zapewnienie, że hasło w karcie jest czytelne */
+    .card-password {
+        color: var(--md-sys-on-surface);
+    }
+
+    /* Tło modala (scrim) powinno być ciemniejsze */
+    .modal-overlay {
+        background-color: rgba(0, 0, 0, 0.6); /* Ciemniejsza nakładka jest tu OK */
+    }
 }
