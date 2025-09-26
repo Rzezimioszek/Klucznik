@@ -1,38 +1,35 @@
 /* --- Zmienne w stylu Material 3 --- */
 :root {
-    /* Paleta kolorów (przykładowa, inspirowana M3) */
-    --md-sys-primary: #4A69BB; /* Główny kolor akcji */
-    --md-sys-on-primary: #FFFFFF; /* Tekst/ikony na głównym kolorze */
-    --md-sys-primary-container: #D8E2FF; /* Tonalne tło dla elementów powiązanych z akcją główną */
-    --md-sys-on-primary-container: #001A41; /* Tekst na tle tonalnym */
-    
-    --md-sys-background: #FDFBFF; /* Główne tło aplikacji */
-    --md-sys-on-background: #1A1C1E; /* Główny kolor tekstu */
-
-    --md-sys-surface: #FDFBFF; /* Powierzchnia głównych komponentów (np. kontener) */
-    --md-sys-surface-variant: #E1E2EC; /* Powierzchnia o niższym priorytecie (np. tło pól input) */
-    --md-sys-on-surface: #1A1C1E; /* Tekst na powierzchni */
-    --md-sys-on-surface-variant: #44474F; /* Tekst drugorzędny */
-
-    --md-sys-outline: #74777F; /* Obramowanie (np. w polach input) */
-    --md-sys-outline-variant: #C4C6D0; /* Subtelniejsze obramowanie (np. w kartach) */
-    
-    --md-sys-error: #B3261E; /* Kolor błędu */
-    --md-sys-error-container: #F9DEDC; /* Tło dla komunikatów o błędach */
-    --md-sys-on-error-container: #410E0B; /* Tekst na tle błędu */
-
-    /* Cienie (Elevation) */
+    /* ... (reszta zmiennych bez zmian) ... */
+    --md-sys-primary: #4A69BB;
+    --md-sys-on-primary: #FFFFFF;
+    --md-sys-primary-container: #D8E2FF;
+    --md-sys-on-primary-container: #001A41;
+    --md-sys-background: #FDFBFF;
+    --md-sys-on-background: #1A1C1E;
+    --md-sys-surface: #FDFBFF;
+    --md-sys-surface-variant: #E1E2EC;
+    --md-sys-on-surface: #1A1C1E;
+    --md-sys-on-surface-variant: #44474F;
+    --md-sys-outline: #74777F;
+    --md-sys-outline-variant: #C4C6D0;
+    --md-sys-error: #B3261E;
+    --md-sys-error-container: #F9DEDC;
+    --md-sys-on-error-container: #410E0B;
     --shadow-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.08);
     --shadow-elevation-2: 0 2px 6px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.08);
     --shadow-elevation-3: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.1);
-
-    /* Zaokrąglenia */
-    --radius-small: 0.5rem;  /* 8px */
-    --radius-medium: 1rem;   /* 16px */
-    --radius-large: 1.75rem; /* 28px */
+    --radius-small: 0.5rem;
+    --radius-medium: 1rem;
+    --radius-large: 1.75rem;
 }
 
-/* --- Style podstawowe --- */
+/* --- Style podstawowe z płynną typografią --- */
+html {
+    /* Płynny rozmiar czcionki: min 14px, preferowany 1.5vw + 0.5rem, max 16px */
+    font-size: clamp(14px, 1.5vw + 0.5rem, 16px);
+}
+
 body {
     font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     background-color: var(--md-sys-background);
@@ -57,186 +54,81 @@ h1, h2, h3 {
     color: var(--md-sys-on-surface);
     font-weight: 500;
 }
-h1 { font-size: 2em; }
-h2 { font-size: 1.5em; margin-bottom: 1.25em; }
+h1 { font-size: 2.25rem; } /* Używamy rem dla skalowalności */
+h2 { font-size: 1.75rem; margin-bottom: 1.25rem; }
 
-/* Komunikat (w stylu M3) */
-.warning {
-    background-color: var(--md-sys-error-container);
-    color: var(--md-sys-on-error-container);
-    border: 1px solid transparent;
-    padding: 12px 16px;
-    border-radius: var(--radius-medium);
-    margin-bottom: 24px;
-}
+/* ... (reszta stylów, jak przyciski, karty, itp. bez zmian) ... */
+/* Tu wklej kod z poprzedniej odpowiedzi (od .warning do końca) */
+.warning {background-color: var(--md-sys-error-container);color: var(--md-sys-on-error-container);border: 1px solid transparent;padding: 12px 16px;border-radius: var(--radius-medium);margin-bottom: 24px;}.hidden { display: none !important; }.btn {position: relative;padding: 10px 24px;border: 1px solid transparent;border-radius: var(--radius-large);cursor: pointer;font-size: 0.95rem;font-weight: 500;margin: 4px;transition: background-color 0.2s ease, box-shadow 0.2s ease;text-align: center;overflow: hidden;user-select: none;-webkit-tap-highlight-color: transparent;}.btn::after {content: '';position: absolute;top: 0; left: 0; width: 100%; height: 100%;background-color: currentColor;opacity: 0;transition: opacity 0.2s ease;}.btn:hover::after { opacity: 0.08; }.btn:focus-visible::after { opacity: 0.12; }.btn:active::after { opacity: 0.12; }.btn-filled {background-color: var(--md-sys-primary);color: var(--md-sys-on-primary);}.btn-filled:hover { background-color: var(--md-sys-primary); }.btn-filled:focus-visible { box-shadow: 0 0 0 2px var(--md-sys-primary-container); }.btn-tonal {background-color: var(--md-sys-primary-container);color: var(--md-sys-on-primary-container);}.btn-tonal:hover { background-color: var(--md-sys-primary-container); }.btn-outlined {background-color: transparent;color: var(--md-sys-primary);border-color: var(--md-sys-outline);}.btn-outlined:hover { background-color: transparent; }.btn-outlined:focus-visible { border-color: var(--md-sys-primary); background-color: rgba(var(--md-sys-primary-rgb), 0.05); }#app-screen .actions {display: flex;justify-content: space-between;align-items: center;flex-wrap: wrap;gap: 16px;margin-bottom: 24px;border-bottom: 1px solid var(--md-sys-outline-variant);padding-bottom: 24px;}.form-input, #search-input {flex-grow: 1;padding: 16px;font-size: 1rem;background-color: var(--md-sys-surface-variant);border: 1px solid var(--md-sys-outline);border-radius: var(--radius-small);transition: border-color 0.2s ease, box-shadow 0.2s ease;box-sizing: border-box;}.form-input:focus, #search-input:focus {outline: none;border-color: var(--md-sys-primary);box-shadow: 0 0 0 2px var(--md-sys-primary-container); }#search-input {min-width: 280px;}#cards-container {display: grid;grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));gap: 20px;}.card {background-color: var(--md-sys-surface);border: 1px solid var(--md-sys-outline-variant);border-radius: var(--radius-medium);padding: 16px;box-shadow: var(--shadow-elevation-1);display: flex;flex-direction: column;gap: 12px;transition: box-shadow 0.2s ease;}.card:hover {box-shadow: var(--shadow-elevation-2);}.card-header { display: flex; justify-content: space-between; align-items: flex-start; }.card-title { margin: 0; word-break: break-word; font-size: 1.25rem; font-weight: 500; }.card p { margin: 0; word-break: break-word; color: var(--md-sys-on-surface-variant); }.copyable-field { display: flex; justify-content: space-between; align-items: center; gap: 10px; }.copyable-field p { flex-grow: 1; }.password-field { display: flex; align-items: center; flex-grow: 1; }.card-password { flex-grow: 1; border: none; background: transparent; font-family: monospace; font-size: 1rem; color: var(--md-sys-on-surface); }.toggle-visibility-btn, .copy-btn, .edit-btn, .delete-btn {background: transparent; border: none; cursor: pointer;font-size: 1.5em; padding: 8px; color: var(--md-sys-on-surface-variant);border-radius: 50%;position: relative;overflow: hidden;}.toggle-visibility-btn::after, .copy-btn::after, .edit-btn::after, .delete-btn::after {content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;background-color: currentColor; opacity: 0; transition: opacity 0.2s;border-radius: 50%;}.toggle-visibility-btn:hover, .copy-btn:hover, .edit-btn:hover, .delete-btn:hover { color: var(--md-sys-on-surface); }.toggle-visibility-btn:hover::after, .copy-btn:hover::after, .edit-btn:hover::after, .delete-btn:hover::after { opacity: 0.08; }.edit-btn, .delete-btn { font-size: 1.25em; }.card-actions { margin-left: auto; display: flex; align-items: center; }.modal-overlay {position: fixed; top: 0; left: 0; width: 100%; height: 100%;background-color: rgba(0, 0, 0, 0.4);display: flex; justify-content: center; align-items: center;z-index: 1000;}.modal-content {background-color: var(--md-sys-surface); padding: 24px; border-radius: var(--radius-large); width: 90%;box-shadow: var(--shadow-elevation-3);}.modal-content.wide { max-width: 500px; }.modal-content:not(.wide) { max-width: 400px; }.modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 24px; }#entry-form label { font-weight: 500; display: block; margin: 16px 0 8px 0; color: var(--md-sys-on-surface-variant); }#entry-form .form-input {width: 100%; margin: 0;}.password-generator-field { display: flex; align-items: center; gap: 10px; }.password-generator-field .form-input { margin-bottom: 0; }.password-generator-field .btn { margin: 0; padding: 10px; font-size: 1.5em; line-height: 1; }
+/* ---=======================================--- */
+/* ---             STYLE MOBILNE             --- */
+/* ---=======================================--- */
+@media (max-width: 768px) {
+    /* Mniejsze marginesy na całej stronie */
+    body {
+        padding: 12px;
+    }
 
-.hidden { display: none !important; }
+    /* Kontener zajmuje więcej miejsca i ma mniejsze paddingi */
+    .container {
+        padding: 16px 20px;
+        border-radius: var(--radius-medium);
+        /* Na mobile cienie są mniej istotne, można je zredukować lub usunąć */
+        box-shadow: none;
+        border: 1px solid var(--md-sys-outline-variant);
+    }
+    
+    /* Mniejsze nagłówki */
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.4rem; }
+    
+    /* Sekcja akcji: elementy układają się pionowo */
+    #app-screen .actions {
+        flex-direction: column;
+        align-items: stretch; /* Elementy rozciągają się na pełną szerokość */
+        padding-bottom: 16px;
+        margin-bottom: 16px;
+    }
 
-/* --- Przyciski (w stylu Material 3) --- */
-.btn {
-    position: relative;
-    padding: 10px 24px;
-    border: 1px solid transparent;
-    border-radius: var(--radius-large);
-    cursor: pointer;
-    font-size: 0.95rem;
-    font-weight: 500;
-    margin: 4px;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
-    text-align: center;
-    overflow: hidden; /* Dla state-layer */
-    user-select: none;
-    -webkit-tap-highlight-color: transparent; /* Usuwa podświetlenie na mobile */
-}
+    /* Input wyszukiwania zajmuje całą szerokość */
+    #search-input {
+        min-width: 100%;
+        margin-bottom: 8px;
+    }
+    
+    /* Siatka kart: mniejszy odstęp */
+    #cards-container {
+        /* Grid z `minmax` jest już responsywny! */
+        /* Możemy jedynie zmniejszyć odstępy */
+        gap: 16px;
+        /* Wyśrodkowanie kart, jeśli jest tylko jedna w rzędzie */
+        justify-items: center; 
+    }
+    
+    .card {
+        padding: 12px;
+    }
+    
+    /* Modal: mniejsze paddingi i przyciski na całą szerokość */
+    .modal-content {
+        padding: 20px;
+        width: 95%;
+        border-radius: var(--radius-medium);
+    }
 
-/* State Layer (efekt najechania/kliknięcia) */
-.btn::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-color: currentColor;
-    opacity: 0;
-    transition: opacity 0.2s ease;
+    .modal-actions {
+        flex-direction: column-reverse; /* "Zapisz" na górze, "Anuluj" na dole */
+        align-items: stretch; /* Rozciągnij przyciski */
+        gap: 12px;
+    }
+    
+    .modal-actions .btn {
+        margin: 0; /* Usuwamy marginesy, bo mamy `gap` */
+        width: 100%;
+    }
+    
+    /* Ikony i przyciski w kartach: większy, łatwiejszy do dotknięcia obszar */
+    .toggle-visibility-btn, .copy-btn, .edit-btn, .delete-btn {
+        padding: 12px; /* Zwiększa "tap target" */
+    }
 }
-.btn:hover::after { opacity: 0.08; }
-.btn:focus-visible::after { opacity: 0.12; }
-.btn:active::after { opacity: 0.12; }
-
-/* Filled Button (główna akcja) */
-.btn-filled {
-    background-color: var(--md-sys-primary);
-    color: var(--md-sys-on-primary);
-}
-.btn-filled:hover { background-color: var(--md-sys-primary); }
-.btn-filled:focus-visible { box-shadow: 0 0 0 2px var(--md-sys-primary-container); }
-
-/* Tonal Button (drugorzędna akcja) */
-.btn-tonal {
-    background-color: var(--md-sys-primary-container);
-    color: var(--md-sys-on-primary-container);
-}
-.btn-tonal:hover { background-color: var(--md-sys-primary-container); }
-
-/* Outlined Button */
-.btn-outlined {
-    background-color: transparent;
-    color: var(--md-sys-primary);
-    border-color: var(--md-sys-outline);
-}
-.btn-outlined:hover { background-color: transparent; }
-.btn-outlined:focus-visible { border-color: var(--md-sys-primary); background-color: rgba(var(--md-sys-primary-rgb), 0.05); }
-
-
-/* --- Główny ekran --- */
-#app-screen .actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-bottom: 24px;
-    border-bottom: 1px solid var(--md-sys-outline-variant);
-    padding-bottom: 24px;
-}
-
-/* Pola formularzy (w stylu M3 Outlined) */
-.form-input, #search-input {
-    flex-grow: 1;
-    padding: 16px;
-    font-size: 1rem;
-    background-color: var(--md-sys-surface-variant);
-    border: 1px solid var(--md-sys-outline);
-    border-radius: var(--radius-small);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    box-sizing: border-box;
-}
-.form-input:focus, #search-input:focus {
-    outline: none;
-    border-color: var(--md-sys-primary);
-    box-shadow: 0 0 0 2px var(--md-sys-primary-container);
-}
-#search-input {
-    min-width: 280px;
-}
-
-#cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 20px;
-}
-
-/* --- Karta (w stylu M3 Elevated Card) --- */
-.card {
-    background-color: var(--md-sys-surface);
-    border: 1px solid var(--md-sys-outline-variant);
-    border-radius: var(--radius-medium);
-    padding: 16px;
-    box-shadow: var(--shadow-elevation-1);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    transition: box-shadow 0.2s ease;
-}
-.card:hover {
-    box-shadow: var(--shadow-elevation-2);
-}
-
-.card-header { display: flex; justify-content: space-between; align-items: flex-start; }
-.card-title { margin: 0; word-break: break-word; font-size: 1.25rem; font-weight: 500; }
-.card p { margin: 0; word-break: break-word; color: var(--md-sys-on-surface-variant); }
-
-.copyable-field { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-.copyable-field p { flex-grow: 1; }
-
-.password-field { display: flex; align-items: center; flex-grow: 1; }
-.card-password { flex-grow: 1; border: none; background: transparent; font-family: monospace; font-size: 1rem; color: var(--md-sys-on-surface); }
-
-/* Przyciski ikonowe (Icon Buttons) */
-.toggle-visibility-btn, .copy-btn, .edit-btn, .delete-btn {
-    background: transparent; border: none; cursor: pointer;
-    font-size: 1.5em; padding: 8px; color: var(--md-sys-on-surface-variant);
-    border-radius: 50%;
-    position: relative;
-    overflow: hidden;
-}
-.toggle-visibility-btn::after, .copy-btn::after, .edit-btn::after, .delete-btn::after {
-    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background-color: currentColor; opacity: 0; transition: opacity 0.2s;
-    border-radius: 50%;
-}
-.toggle-visibility-btn:hover, .copy-btn:hover, .edit-btn:hover, .delete-btn:hover { color: var(--md-sys-on-surface); }
-.toggle-visibility-btn:hover::after, .copy-btn:hover::after, .edit-btn:hover::after, .delete-btn:hover::after { opacity: 0.08; }
-.edit-btn, .delete-btn { font-size: 1.25em; }
-.card-actions { margin-left: auto; display: flex; align-items: center; }
-
-/* --- Modal (Dialog w stylu M3) --- */
-.modal-overlay {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: flex; justify-content: center; align-items: center;
-    z-index: 1000;
-}
-.modal-content {
-    background-color: var(--md-sys-surface); 
-    padding: 24px; 
-    border-radius: var(--radius-large); 
-    width: 90%;
-    box-shadow: var(--shadow-elevation-3);
-}
-.modal-content.wide { max-width: 500px; }
-.modal-content:not(.wide) { max-width: 400px; }
-.modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 24px; }
-
-/* --- Style formularzy w modalu --- */
-#entry-form label { 
-    font-weight: 500; 
-    display: block; 
-    margin: 16px 0 8px 0; 
-    color: var(--md-sys-on-surface-variant);
-}
-#entry-form .form-input {
-    width: 100%; margin: 0;
-}
-.password-generator-field { display: flex; align-items: center; gap: 10px; }
-.password-generator-field .form-input { margin-bottom: 0; }
-.password-generator-field .btn { margin: 0; padding: 10px; font-size: 1.5em; line-height: 1; }
